@@ -18,6 +18,7 @@
  * @copyright       ITCB/xC0d3rZ.
  * @file            Translation service. 
  */
+
 @header('content-type:application/json');
 require __DIR__ . "/http.client.php";
 $t = (rawurldecode($_GET['t']));
