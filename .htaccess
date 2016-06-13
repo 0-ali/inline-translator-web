@@ -1,4 +1,4 @@
 Options -Indexes
 RewriteEngine On
 RewriteRule ^CDN/(.*):(.*)$ vendor/cdn.php?r=$1&f=$2
-RewriteRule ^do/(.*)/(.*):(.*)$ vendor/translate.php?r=$1&t=$2&q=$3
+RewriteRule ^do/(.*)/(.*):(.*)$ vendor/translate.php?rand=$1&t=$2&q=$3
