@@ -16,7 +16,7 @@
  * @package         Inline Translator.
  * @author          xC0d3rZ <x.c0d3rz000@gmail.com>.
  * @copyright       ITCB/xC0d3rZ.
- * @file            CDN Service to get some images from Google to localhost. 
+ * @file            it's just to get some style images ['mic-slash.gif','mic.gif','mic-animate.gif','mic-slash.gif'] from Google website. 
  */
 require __DIR__ . "/http.client.php";
 $files = ['mic-slash.gif','mic.gif','mic-animate.gif','mic-slash.gif'];
