@@ -21,7 +21,7 @@ function CDN($n){
   </script>
   <meta charset="utf-8">
   <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
-  <meta content="Inline translator like #Skype for website" name="description">
+  <meta content="Inline translator like Skype Translator  for web" name="description">
   <title>
     Inline translator - ITCB™
   </title>
