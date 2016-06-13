@@ -16,22 +16,25 @@
  * @package         Inline Translator.
  * @author          xC0d3rZ <x.c0d3rz000@gmail.com>.
  * @copyright       ITCB/xC0d3rZ.
- * @file            CDN Service to get some images from Google to localhost. 
+ * @file            Translation service. 
  */
+@header('content-type:application/json');
 require __DIR__ . "/http.client.php";
-$files = ['mic-slash.gif','mic.gif','mic-animate.gif','mic-slash.gif'];
-foreach ($files as $key => $value) {
-          $get[md5($value)] = $value;
-          $md5[] = md5($value);
+$t = (rawurldecode($_GET['t']));
+$q = (rawurldecode($_GET['q']));
+if(!empty($t) || !empty($q)):
+$param[1]  = '{"sl":"auto","tl":"'.$t.'","q":"'.$q.'"}';
+$callAPI= 'callAPI/8ee71a643df8f4bcebaac43608eeadeac7d:translate:'.base64_encode($param[1]);
+$Request = new \HttpClient('http://185.43.211.39/');
+$Response = $Request->get($callAPI);
+$callback = [];
+if($Response){
+   $data = json_decode($Request->getContent());
+          if($data->results->translatedText){
+              $translated =$data->results->translatedText;
+              $param[2] ='{"t":"'.$translated.'","tl":"'.$t.'"}';
+              $callback = ['t' => $translated , 's' => true,'sessionID' => md5($data->sessionID)];
+          } 
+       print json_encode($callback,128|64);   
 }
-if(in_array(rawurldecode($_GET['f']),$md5)){   
-$cdn = parse_url("https://www.google.com/intl/en/chrome/assets/common/images/content/".$get[$_GET['f']]);
-$Request = new \HttpClient($cdn['host']);
-$Response = $Request->get($cdn['path']);
-if($Request->getHeader('content-type') == 'image/gif'):
-   @header('content-type:image/gif');
-   print $Request->getContent();
-endif;  
-}else{
-    die("cannot do this right now.");
-}
+endif;
