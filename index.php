@@ -10,7 +10,7 @@ function CDN($n){
   <script src='lib/responsivevoice.js'>
 
   </script>
-  <script src='lib/jq.mini.js' />
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js' />
   <script>
     (function(e, p){
     var m = location.href.match(/platform=(win8|win|mac|linux|cros)/);
@@ -26,7 +26,7 @@ function CDN($n){
     Inline translator - ITCB™
   </title>
   <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
-  <link href="lib/inline.css" rel="stylesheet">
+  <link href="https://1tcb.org/inline-translator/lib/inline.css" rel="stylesheet">
   <style>
     #info {
       font-size: 20px;
